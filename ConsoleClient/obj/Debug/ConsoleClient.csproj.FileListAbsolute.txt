@@ -1,0 +1,11 @@
+D:\WCF\MyProject\ConsoleClient\obj\Debug\ConsoleClient.csprojResolveAssemblyReference.cache
+D:\WCF\MyProject\ConsoleClient\obj\Debug\ConsoleClient.csproj.CoreCompileInputs.cache
+D:\WCF\MyProject\ConsoleClient\bin\Debug\ConsoleClient.exe.config
+D:\WCF\MyProject\ConsoleClient\bin\Debug\ConsoleClient.exe
+D:\WCF\MyProject\ConsoleClient\bin\Debug\ConsoleClient.pdb
+D:\WCF\MyProject\ConsoleClient\obj\Debug\ConsoleClient.exe
+D:\WCF\MyProject\ConsoleClient\obj\Debug\ConsoleClient.pdb
+D:\WCF\MyProject\ConsoleClient\bin\Debug\EntityFramework.dll
+D:\WCF\MyProject\ConsoleClient\bin\Debug\EntityFramework.SqlServer.dll
+D:\WCF\MyProject\ConsoleClient\bin\Debug\EntityFramework.xml
+D:\WCF\MyProject\ConsoleClient\bin\Debug\EntityFramework.SqlServer.xml

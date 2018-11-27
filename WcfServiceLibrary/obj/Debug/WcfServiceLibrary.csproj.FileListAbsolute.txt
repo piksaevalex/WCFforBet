@@ -1,0 +1,11 @@
+D:\WCF\MyProject\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.csprojResolveAssemblyReference.cache
+D:\WCF\MyProject\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.csproj.CoreCompileInputs.cache
+D:\WCF\MyProject\WcfServiceLibrary\bin\Debug\WcfServiceLibrary.dll.config
+D:\WCF\MyProject\WcfServiceLibrary\bin\Debug\WcfServiceLibrary.dll
+D:\WCF\MyProject\WcfServiceLibrary\bin\Debug\WcfServiceLibrary.pdb
+D:\WCF\MyProject\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.dll
+D:\WCF\MyProject\WcfServiceLibrary\obj\Debug\WcfServiceLibrary.pdb
+D:\WCF\MyProject\WcfServiceLibrary\bin\Debug\EntityFramework.dll
+D:\WCF\MyProject\WcfServiceLibrary\bin\Debug\EntityFramework.SqlServer.dll
+D:\WCF\MyProject\WcfServiceLibrary\bin\Debug\EntityFramework.xml
+D:\WCF\MyProject\WcfServiceLibrary\bin\Debug\EntityFramework.SqlServer.xml
