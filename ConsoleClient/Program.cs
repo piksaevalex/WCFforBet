@@ -17,7 +17,10 @@ namespace ConsoleClient
                 Service1Client svc = new Service1Client();
                 Console.WriteLine("1-GetAccount, 2-GetAccountById, 3-InsertAccount, 4-GetBet, 5-GetBetById, 6-InsertBet");
                 Console.WriteLine("Enter number or press [ENTER] to quit...");
-                int caseSwitch = Convert.ToInt32(Console.ReadLine());
+                var caseItem = Console.ReadLine();
+                int caseSwitch;
+                if (string.IsNullOrEmpty(caseItem)) { return; }
+                if (!(int.TryParse(caseItem, out caseSwitch))) { Console.WriteLine("Enter number or press [ENTER] to quit..."); continue; }
                 switch (caseSwitch)
                 {
                     case 1:
@@ -54,10 +57,23 @@ namespace ConsoleClient
                         svc.SetBet(DateTime.Now, 10, 2, false, 0);
                         Console.WriteLine("Bet insert Sucsed");
                         break;
+                    case 7:
+                        Console.WriteLine("Введите AccountId и кол-во средств");
+                        var str1 = Console.ReadLine().Split(' ');
+                        int id1 = Convert.ToInt32(str1[0]);
+                        double value1 = Convert.ToDouble(str1[1]);
+                        svc.AccountBalanceUp(id1, value1);
+                        break;
+                    case 8:
+                        Console.WriteLine("Введите AccountId и кол-во средств");
+                        var str2 = Console.ReadLine().Split(' ');
+                        int id2 = Convert.ToInt32(str2[0]);
+                        double value2 = Convert.ToDouble(str2[1]);
+                        svc.AccountBalanceDown(id2, value2);
+                        break;
                         
                 }
-                //if (string.IsNullOrEmpty(emailAddress))
-                    //return;
+                
 
             }
         }

@@ -33,7 +33,7 @@ namespace ConsoleHost
             Console.WriteLine("Press <ENTER> to terminate Host");
             Console.ReadLine();
             #endregion
-
+            host.Close();
         }
     }
 }

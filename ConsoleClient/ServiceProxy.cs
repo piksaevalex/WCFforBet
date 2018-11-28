@@ -21,7 +21,7 @@ namespace ConsoleClient
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private float BalanceField;
+        private double BalanceField;
         
         private System.DateTime DateOfBirthField;
         
@@ -46,7 +46,7 @@ namespace ConsoleClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float Balance
+        public double Balance
         {
             get
             {
@@ -132,15 +132,15 @@ namespace ConsoleClient
         
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private float CoefficentField;
+        private double CoefficentField;
         
         private System.DateTime DateField;
         
         private int IdField;
         
-        private float InValueField;
+        private double InValueField;
         
-        private System.Nullable<float> OutValueField;
+        private System.Nullable<double> OutValueField;
         
         private System.Nullable<bool> ResultField;
         
@@ -157,7 +157,7 @@ namespace ConsoleClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float Coefficent
+        public double Coefficent
         {
             get
             {
@@ -196,7 +196,7 @@ namespace ConsoleClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float InValue
+        public double InValue
         {
             get
             {
@@ -209,7 +209,7 @@ namespace ConsoleClient
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<float> OutValue
+        public System.Nullable<double> OutValue
         {
             get
             {
@@ -253,22 +253,22 @@ namespace ConsoleClient
         System.Threading.Tasks.Task<ConsoleClient.Account> GetAccountAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetAccount", ReplyAction="http://tempuri.org/IService1/SetAccountResponse")]
-        void SetAccount(string surName, string name, string middleName, System.DateTime dateOfBirth, float balance);
+        void SetAccount(string surName, string name, string middleName, System.DateTime dateOfBirth, double balance);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetAccount", ReplyAction="http://tempuri.org/IService1/SetAccountResponse")]
-        System.Threading.Tasks.Task SetAccountAsync(string surName, string name, string middleName, System.DateTime dateOfBirth, float balance);
+        System.Threading.Tasks.Task SetAccountAsync(string surName, string name, string middleName, System.DateTime dateOfBirth, double balance);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AccountBalanceUp", ReplyAction="http://tempuri.org/IService1/AccountBalanceUpResponse")]
-        void AccountBalanceUp(int id, float value);
+        void AccountBalanceUp(int id, double value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AccountBalanceUp", ReplyAction="http://tempuri.org/IService1/AccountBalanceUpResponse")]
-        System.Threading.Tasks.Task AccountBalanceUpAsync(int id, float value);
+        System.Threading.Tasks.Task AccountBalanceUpAsync(int id, double value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AccountBalanceDown", ReplyAction="http://tempuri.org/IService1/AccountBalanceDownResponse")]
-        void AccountBalanceDown(int id, float value);
+        void AccountBalanceDown(int id, double value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AccountBalanceDown", ReplyAction="http://tempuri.org/IService1/AccountBalanceDownResponse")]
-        System.Threading.Tasks.Task AccountBalanceDownAsync(int id, float value);
+        System.Threading.Tasks.Task AccountBalanceDownAsync(int id, double value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBets", ReplyAction="http://tempuri.org/IService1/GetBetsResponse")]
         ConsoleClient.Bet[] GetBets();
@@ -283,10 +283,10 @@ namespace ConsoleClient
         System.Threading.Tasks.Task<ConsoleClient.Bet> GetBetAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetBet", ReplyAction="http://tempuri.org/IService1/SetBetResponse")]
-        void SetBet(System.DateTime date, float valueIn, float coefficient, bool result, float valueOut);
+        void SetBet(System.DateTime date, double valueIn, double coefficient, bool result, double valueOut);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetBet", ReplyAction="http://tempuri.org/IService1/SetBetResponse")]
-        System.Threading.Tasks.Task SetBetAsync(System.DateTime date, float valueIn, float coefficient, bool result, float valueOut);
+        System.Threading.Tasks.Task SetBetAsync(System.DateTime date, double valueIn, double coefficient, bool result, double valueOut);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -343,32 +343,32 @@ namespace ConsoleClient
             return base.Channel.GetAccountAsync(id);
         }
         
-        public void SetAccount(string surName, string name, string middleName, System.DateTime dateOfBirth, float balance)
+        public void SetAccount(string surName, string name, string middleName, System.DateTime dateOfBirth, double balance)
         {
             base.Channel.SetAccount(surName, name, middleName, dateOfBirth, balance);
         }
         
-        public System.Threading.Tasks.Task SetAccountAsync(string surName, string name, string middleName, System.DateTime dateOfBirth, float balance)
+        public System.Threading.Tasks.Task SetAccountAsync(string surName, string name, string middleName, System.DateTime dateOfBirth, double balance)
         {
             return base.Channel.SetAccountAsync(surName, name, middleName, dateOfBirth, balance);
         }
         
-        public void AccountBalanceUp(int id, float value)
+        public void AccountBalanceUp(int id, double value)
         {
             base.Channel.AccountBalanceUp(id, value);
         }
         
-        public System.Threading.Tasks.Task AccountBalanceUpAsync(int id, float value)
+        public System.Threading.Tasks.Task AccountBalanceUpAsync(int id, double value)
         {
             return base.Channel.AccountBalanceUpAsync(id, value);
         }
         
-        public void AccountBalanceDown(int id, float value)
+        public void AccountBalanceDown(int id, double value)
         {
             base.Channel.AccountBalanceDown(id, value);
         }
         
-        public System.Threading.Tasks.Task AccountBalanceDownAsync(int id, float value)
+        public System.Threading.Tasks.Task AccountBalanceDownAsync(int id, double value)
         {
             return base.Channel.AccountBalanceDownAsync(id, value);
         }
@@ -393,12 +393,12 @@ namespace ConsoleClient
             return base.Channel.GetBetAsync(id);
         }
         
-        public void SetBet(System.DateTime date, float valueIn, float coefficient, bool result, float valueOut)
+        public void SetBet(System.DateTime date, double valueIn, double coefficient, bool result, double valueOut)
         {
             base.Channel.SetBet(date, valueIn, coefficient, result, valueOut);
         }
         
-        public System.Threading.Tasks.Task SetBetAsync(System.DateTime date, float valueIn, float coefficient, bool result, float valueOut)
+        public System.Threading.Tasks.Task SetBetAsync(System.DateTime date, double valueIn, double coefficient, bool result, double valueOut)
         {
             return base.Channel.SetBetAsync(date, valueIn, coefficient, result, valueOut);
         }

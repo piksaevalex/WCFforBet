@@ -13,14 +13,22 @@ namespace WcfServiceLibrary
     // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "Service1" в коде и файле конфигурации.
     public class Service1 : IService1
     {
-        public void AccountBalanceDown(int id, float value)
+        public void AccountBalanceDown(int id, double value)
         {
-            throw new NotImplementedException();
+            AccountContext context = new AccountContext();
+            Account account = context.Accounts.Where(c => c.Id == id).FirstOrDefault();
+            account.Balance = account.Balance - value;
+            context.SaveChanges();
+            context.Dispose();
         }
 
-        public void AccountBalanceUp(int id, float value)
+        public void AccountBalanceUp(int id, double value)
         {
-            throw new NotImplementedException();
+            AccountContext context = new AccountContext();
+            Account account = context.Accounts.Find(id);
+            account.Balance = account.Balance + value;
+            context.SaveChanges();
+            context.Dispose();
         }
 
         public Account GetAccount(int id)
@@ -28,20 +36,20 @@ namespace WcfServiceLibrary
             AccountContext context = new AccountContext();
             {
                 var account = context.Accounts.Find(id);
+                context.Dispose();
                 return account;
             } 
-            throw new NotImplementedException();
         }
 
         public DbSet<Account> GetAccounts()
         {
             AccountContext context = new AccountContext();
             {
-                context.Accounts.Load();
+                //context.Accounts.Load();
                 var accounts = context.Accounts;
+                context.Dispose();
                 return accounts;
             }
-            throw new NotImplementedException();
         }
 
         public Bet GetBet(int id)
@@ -49,9 +57,9 @@ namespace WcfServiceLibrary
             BetContext context = new BetContext();
             {
                 var bet = context.Bets.Find(id);
+                context.Dispose();
                 return bet;
             }   
-            throw new NotImplementedException();
         }
 
         public DbSet<Bet> GetBets()
@@ -59,12 +67,12 @@ namespace WcfServiceLibrary
             BetContext context = new BetContext();
             {
                 var bets = context.Bets;
+                context.Dispose();
                 return bets;
             }
-            throw new NotImplementedException();
         }
 
-        public void SetAccount(string surName, string name, string middleName, DateTime dateOfBirth, float balance = 0)
+        public void SetAccount(string surName, string name, string middleName, DateTime dateOfBirth, double balance = 0)
         {
             AccountContext context = new AccountContext();
             {
@@ -78,9 +86,10 @@ namespace WcfServiceLibrary
                 });
                 context.SaveChanges();
             }
+            context.Dispose();
         }
 
-        public void SetBet(DateTime date, float valueIn, float coefficient, bool result, float valueOut)
+        public void SetBet(DateTime date, double valueIn, double coefficient, bool result, double valueOut)
         {
             BetContext context = new BetContext();
             {
@@ -94,6 +103,7 @@ namespace WcfServiceLibrary
                 });
                 context.SaveChanges();
             }
+            context.Dispose();
         }
     }
 }

@@ -20,13 +20,13 @@ namespace WcfServiceLibrary
         Account GetAccount(int id);
 
         [OperationContract]
-        void SetAccount(string surName, string name, string middleName, DateTime dateOfBirth, float balance);
+        void SetAccount(string surName, string name, string middleName, DateTime dateOfBirth, double balance);
 
         [OperationContract]
-        void AccountBalanceUp(int id, float value);
+        void AccountBalanceUp(int id, double value);
 
         [OperationContract]
-        void AccountBalanceDown(int id, float value);
+        void AccountBalanceDown(int id, double value);
 
         [OperationContract]
         DbSet<Bet> GetBets();
@@ -35,7 +35,7 @@ namespace WcfServiceLibrary
         Bet GetBet(int id);
 
         [OperationContract]
-        void SetBet(DateTime date, float valueIn, float coefficient, bool result, float valueOut);
+        void SetBet(DateTime date, double valueIn, double coefficient, bool result, double valueOut);
 
         
     }
