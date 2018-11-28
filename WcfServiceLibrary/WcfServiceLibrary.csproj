@@ -53,9 +53,8 @@
   <ItemGroup>
     <Compile Include="IBetService.cs" />
     <Compile Include="Model\Account.cs" />
-    <Compile Include="Model\AccountContext.cs" />
+    <Compile Include="Model\MyDBContext.cs" />
     <Compile Include="Model\Bet.cs" />
-    <Compile Include="Model\BetContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BetService.cs" />
   </ItemGroup>

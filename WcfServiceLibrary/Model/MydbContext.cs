@@ -2,11 +2,12 @@
 
 namespace WcfServiceLibrary.Model
 {
-    public class AccountContext : DbContext
+    public class MyDBContext : DbContext
     {
-        public AccountContext() : base("DefaultConnection")
+        public MyDBContext() : base("DefaultConnection")
         {
         }
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Bet> Bets { get; set; }
     }
 }

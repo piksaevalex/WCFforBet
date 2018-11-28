@@ -14,7 +14,7 @@ namespace WcfServiceLibrary
     {
         public void AccountBalanceDown(int id, double value)
         {
-            using (AccountContext context = new AccountContext())
+            using (MyDBContext context = new MyDBContext())
             {
                 Account account = context.Accounts.FirstOrDefault(c => c.Id == id);
                 account.Balance = account.Balance - value;
@@ -24,7 +24,7 @@ namespace WcfServiceLibrary
 
         public void AccountBalanceUp(int id, double value)
         {
-            using (AccountContext context = new AccountContext())
+            using (MyDBContext context = new MyDBContext())
             {
                 Account account = context.Accounts.Find(id);
                 account.Balance = account.Balance + value;
@@ -34,7 +34,7 @@ namespace WcfServiceLibrary
 
         public Account GetAccount(int id)
         {
-            using (AccountContext context = new AccountContext())
+            using (MyDBContext context = new MyDBContext())
             {
                 var account = context.Accounts.Find(id);
                 return account;
@@ -43,7 +43,7 @@ namespace WcfServiceLibrary
 
         public List<Account> GetAccounts()
         {
-            using (AccountContext context = new AccountContext())
+            using (MyDBContext context = new MyDBContext())
             {
                 var accounts = context.Accounts.ToList();
                 return accounts;
@@ -52,7 +52,7 @@ namespace WcfServiceLibrary
 
         public Bet GetBet(int id)
         {
-            using (BetContext context = new BetContext())
+            using (MyDBContext context = new MyDBContext())
             {
                 var bet = context.Bets.Find(id);
                 return bet;
@@ -61,7 +61,7 @@ namespace WcfServiceLibrary
 
         public List<Bet> GetBets()
         {
-            using (BetContext context = new BetContext())
+            using (MyDBContext context = new MyDBContext())
             {
                 var bets = context.Bets.ToList();
                 return bets;
@@ -70,7 +70,7 @@ namespace WcfServiceLibrary
 
         public void SetAccount(string surName, string name, string middleName, DateTime dateOfBirth, double balance = 0)
         {
-            using (AccountContext context = new AccountContext())
+            using (MyDBContext context = new MyDBContext())
             {
                 context.Accounts.Add(new Account
                 {
@@ -78,7 +78,7 @@ namespace WcfServiceLibrary
                     Name = name,
                     MiddleName = middleName,
                     Balance = balance,
-                    DateOfBirth = dateOfBirth
+                    DateOfBirth = dateOfBirth.Date
                 });
                 context.SaveChanges();
             }
@@ -86,11 +86,11 @@ namespace WcfServiceLibrary
 
         public void SetBet(DateTime date, double valueIn, double coefficient, bool result, double valueOut)
         {
-            using (BetContext context = new BetContext())
+            using (MyDBContext context = new MyDBContext())
             {
                 context.Bets.Add(new Bet
                 {
-                    Date = date,
+                    Date = date.Date,
                     InValue = valueIn,
                     Coefficent = coefficient,
                     Result = result,

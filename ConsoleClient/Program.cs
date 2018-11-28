@@ -15,7 +15,7 @@ namespace ConsoleClient
             while (true)
             {
                 BetServiceClient svc = new BetServiceClient();
-                Console.WriteLine("1-GetAccount, 2-GetAccountById, 3-InsertAccount, 4-GetBet, 5-GetBetById, 6-InsertBet");
+                Console.WriteLine("1-GetAccount, 2-GetAccountById, 3-InsertAccount, 4-GetBet, 5-GetBetById, 6-InsertBet, 7-Внести деньги, 8-Вывести деньги");
                 Console.WriteLine("Enter number or press [ENTER] to quit...");
                 var caseItem = Console.ReadLine();
                 int caseSwitch;
