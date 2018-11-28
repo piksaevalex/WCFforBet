@@ -9,6 +9,6 @@ namespace WcfServiceLibrary.model
         public string Name { get; set; }
         public string MiddleName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public float Balance { get; set; }
+        public double Balance { get; set; }
     }
 }

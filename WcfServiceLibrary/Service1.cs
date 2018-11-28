@@ -26,54 +26,40 @@ namespace WcfServiceLibrary
         public Account GetAccount(int id)
         {
             AccountContext context = new AccountContext();
-
-            var account = context.Accounts.Find(id);
-            if (account != null)
-            { return account; }
-            else
             {
-                return null;
-            }
-            
+                var account = context.Accounts.Find(id);
+                return account;
+            } 
             throw new NotImplementedException();
         }
 
         public DbSet<Account> GetAccounts()
         {
             AccountContext context = new AccountContext();
-
-            var accounts = context.Accounts;
-            if (accounts != null)
-            { return accounts; }
-            else
-            { return null; }
+            {
+                context.Accounts.Load();
+                var accounts = context.Accounts;
+                return accounts;
+            }
             throw new NotImplementedException();
         }
 
         public Bet GetBet(int id)
         {
             BetContext context = new BetContext();
-
-            var bet = context.Bets.Find(id);
-            if (bet != null)
-            { return bet; }
-            else
             {
-                return null;
-            }
+                var bet = context.Bets.Find(id);
+                return bet;
+            }   
             throw new NotImplementedException();
         }
 
         public DbSet<Bet> GetBets()
         {
             BetContext context = new BetContext();
-
-            var bets = context.Bets;
-            if (bets != null)
-            { return bets; }
-            else
             {
-                return null;
+                var bets = context.Bets;
+                return bets;
             }
             throw new NotImplementedException();
         }
@@ -81,32 +67,33 @@ namespace WcfServiceLibrary
         public void SetAccount(string surName, string name, string middleName, DateTime dateOfBirth, float balance = 0)
         {
             AccountContext context = new AccountContext();
-
-            context.Accounts.Add(new Account
             {
-                SurName = surName,
-                Name = name,
-                MiddleName = middleName,
-                Balance = balance,
-                DateOfBirth = dateOfBirth
-            });
-            context.SaveChanges();
+                context.Accounts.Add(new Account
+                {
+                    SurName = surName,
+                    Name = name,
+                    MiddleName = middleName,
+                    Balance = balance,
+                    DateOfBirth = dateOfBirth
+                });
+                context.SaveChanges();
+            }
         }
 
         public void SetBet(DateTime date, float valueIn, float coefficient, bool result, float valueOut)
         {
             BetContext context = new BetContext();
-
-            context.Bets.Add(new Bet
             {
-                Date = date,
-                InValue = valueIn,
-                Coefficent = coefficient,
-                Result = result,
-                OutValue = valueOut
-            });
-            context.SaveChanges();
+                context.Bets.Add(new Bet
+                {
+                    Date = date,
+                    InValue = valueIn,
+                    Coefficent = coefficient,
+                    Result = result,
+                    OutValue = valueOut
+                });
+                context.SaveChanges();
+            }
         }
-
     }
 }

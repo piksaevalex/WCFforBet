@@ -6,7 +6,6 @@ namespace WcfServiceLibrary.model
     {
         public AccountContext() : base("DefaultConnection")
         {
-
         }
         public DbSet<Account> Accounts { get; set; }
     }

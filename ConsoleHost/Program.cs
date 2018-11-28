@@ -13,7 +13,7 @@ namespace ConsoleHost
     class Program
     {
         static void Main(string[] args)
-        {
+        {    
             Type serviceType = typeof(Service1);
             Uri serviceUri = new Uri("http://localhost:8090/");
             ServiceHost host = new ServiceHost(serviceType, serviceUri);

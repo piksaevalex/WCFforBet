@@ -6,9 +6,9 @@ namespace WcfServiceLibrary.model
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public float InValue { get; set; }
-        public float Coefficent { get; set; }
+        public double InValue { get; set; }
+        public double Coefficent { get; set; }
         public bool? Result { get; set; }
-        public float? OutValue { get; set; }
+        public double? OutValue { get; set; }
     }
 }
