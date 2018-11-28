@@ -7,6 +7,7 @@ namespace WcfServiceLibrary.Model
         public MyDBContext() : base("DefaultConnection")
         {
         }
+
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Bet> Bets { get; set; }
     }
