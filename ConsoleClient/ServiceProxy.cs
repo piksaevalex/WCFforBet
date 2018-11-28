@@ -246,6 +246,12 @@ namespace ConsoleClient
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetAccounts", ReplyAction="http://tempuri.org/IBetService/GetAccountsResponse")]
         System.Threading.Tasks.Task<ConsoleClient.Account[]> GetAccountsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetAccountsBySurname", ReplyAction="http://tempuri.org/IBetService/GetAccountsBySurnameResponse")]
+        ConsoleClient.Account[] GetAccountsBySurname(string surname);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetAccountsBySurname", ReplyAction="http://tempuri.org/IBetService/GetAccountsBySurnameResponse")]
+        System.Threading.Tasks.Task<ConsoleClient.Account[]> GetAccountsBySurnameAsync(string surname);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetAccount", ReplyAction="http://tempuri.org/IBetService/GetAccountResponse")]
         ConsoleClient.Account GetAccount(int id);
         
@@ -275,6 +281,12 @@ namespace ConsoleClient
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetBets", ReplyAction="http://tempuri.org/IBetService/GetBetsResponse")]
         System.Threading.Tasks.Task<ConsoleClient.Bet[]> GetBetsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetBetsByInValue", ReplyAction="http://tempuri.org/IBetService/GetBetsByInValueResponse")]
+        ConsoleClient.Bet[] GetBetsByInValue(double value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetBetsByInValue", ReplyAction="http://tempuri.org/IBetService/GetBetsByInValueResponse")]
+        System.Threading.Tasks.Task<ConsoleClient.Bet[]> GetBetsByInValueAsync(double value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetBet", ReplyAction="http://tempuri.org/IBetService/GetBetResponse")]
         ConsoleClient.Bet GetBet(int id);
@@ -333,6 +345,16 @@ namespace ConsoleClient
             return base.Channel.GetAccountsAsync();
         }
         
+        public ConsoleClient.Account[] GetAccountsBySurname(string surname)
+        {
+            return base.Channel.GetAccountsBySurname(surname);
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleClient.Account[]> GetAccountsBySurnameAsync(string surname)
+        {
+            return base.Channel.GetAccountsBySurnameAsync(surname);
+        }
+        
         public ConsoleClient.Account GetAccount(int id)
         {
             return base.Channel.GetAccount(id);
@@ -381,6 +403,16 @@ namespace ConsoleClient
         public System.Threading.Tasks.Task<ConsoleClient.Bet[]> GetBetsAsync()
         {
             return base.Channel.GetBetsAsync();
+        }
+        
+        public ConsoleClient.Bet[] GetBetsByInValue(double value)
+        {
+            return base.Channel.GetBetsByInValue(value);
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleClient.Bet[]> GetBetsByInValueAsync(double value)
+        {
+            return base.Channel.GetBetsByInValueAsync(value);
         }
         
         public ConsoleClient.Bet GetBet(int id)

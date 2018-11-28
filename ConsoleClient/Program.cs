@@ -10,7 +10,7 @@ namespace ConsoleClient
             {
                 var svc = new BetServiceClient();
                 Console.WriteLine(
-                    "1-GetAccount, 2-GetAccountById, 3-InsertAccount, 4-GetBet, 5-GetBetById, 6-InsertBet, 7-Внести деньги, 8-Вывести деньги");
+                    "1-GetAccount, 2-GetAccountById, 3-InsertAccount, 4-GetBet, 5-GetBetById, 6-InsertBet, 7-Внести деньги,\n8-Вывести деньги, 9-Вывести Аккаунт по вхождении фамилии, 10-Вывести ставку по сумме ставки");
                 Console.WriteLine("Enter number or press [ENTER] to quit...");
                 var caseItem = Console.ReadLine();
                 int caseSwitch;
@@ -34,7 +34,10 @@ namespace ConsoleClient
                         Console.WriteLine("Введите id Account");
                         var accountId = Convert.ToInt32(Console.ReadLine());
                         var accountById = svc.GetAccount(accountId);
-                        if (accountById != null) Console.WriteLine(accountById.Name);
+                        if (accountById != null)
+                            Console.WriteLine(accountById.SurName);
+                        else
+                            Console.WriteLine("Данный аккаунт не найден");
                         break;
                     case 3:
                         svc.SetAccount("Ivanov", "Ivan", "Ivanovich", DateTime.Now, 0);
@@ -48,7 +51,10 @@ namespace ConsoleClient
                         Console.WriteLine("Введите id Bet");
                         var betId = Convert.ToInt32(Console.ReadLine());
                         var betById = svc.GetBet(betId);
-                        if (betById != null) Console.WriteLine(betById.InValue);
+                        if (betById != null)
+                            Console.WriteLine(betById.InValue);
+                        else
+                            Console.WriteLine("Данная ставка не найдена");
                         break;
                     case 6:
                         svc.SetBet(DateTime.Now, 10, 2, false, 0);
@@ -67,6 +73,23 @@ namespace ConsoleClient
                         var id2 = Convert.ToInt32(str2[0]);
                         var value2 = Convert.ToDouble(str2[1]);
                         svc.AccountBalanceDown(id2, value2);
+                        break;
+                    case 9:
+                        Console.WriteLine("Введите Surname");
+                        var accountsBySurname = svc.GetAccountsBySurname(Console.ReadLine());
+                        foreach (var account in accountsBySurname) Console.WriteLine(account.Name);
+                        break;
+                    case 10:
+                        Console.WriteLine("Введите Сумму ставки");
+                        if (!double.TryParse(Console.ReadLine(), out var result))
+                        {
+                            Console.WriteLine("Неправильная сумма");
+                            break;
+                        }
+
+                        var betsByInValue = svc.GetBetsByInValue(result);
+                        if (betsByInValue.Length == 0) Console.WriteLine("Нет таких");
+                        foreach (var bet in betsByInValue) Console.WriteLine(bet.Id);
                         break;
                 }
             }

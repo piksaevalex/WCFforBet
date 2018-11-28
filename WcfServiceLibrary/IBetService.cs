@@ -17,6 +17,9 @@ namespace WcfServiceLibrary
         List<Account> GetAccounts();
 
         [OperationContract]
+        List<Account> GetAccountsBySurname(string surname);
+
+        [OperationContract]
         Account GetAccount(int id);
 
         [OperationContract]
@@ -30,6 +33,9 @@ namespace WcfServiceLibrary
 
         [OperationContract]
         List<Bet> GetBets();
+
+        [OperationContract]
+        List<Bet> GetBetsByInValue(double value);
 
         [OperationContract]
         Bet GetBet(int id);

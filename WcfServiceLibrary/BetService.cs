@@ -43,6 +43,14 @@ namespace WcfServiceLibrary
             }
         }
 
+        public List<Account> GetAccountsBySurname(string surname)
+        {
+            using (var context = new MyDBContext())
+            {
+                return context.Accounts.Where(acc => acc.SurName.Contains(surname)).ToList();
+            }
+        }
+
         public Bet GetBet(int id)
         {
             using (var context = new MyDBContext())
@@ -56,6 +64,14 @@ namespace WcfServiceLibrary
             using (var context = new MyDBContext())
             {
                 return context.Bets.ToList();
+            }
+        }
+
+        public List<Bet> GetBetsByInValue(double value)
+        {
+            using (var context = new MyDBContext())
+            {
+                return context.Bets.Where(bet => bet.InValue.Equals(value)).ToList();
             }
         }
 
