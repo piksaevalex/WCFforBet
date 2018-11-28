@@ -6,75 +6,71 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
-using WcfServiceLibrary.model;
+using WcfServiceLibrary.Model;
 
 namespace WcfServiceLibrary
 {
-    // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "Service1" в коде и файле конфигурации.
-    public class Service1 : IService1
+    public class BetService : IBetService
     {
         public void AccountBalanceDown(int id, double value)
         {
-            AccountContext context = new AccountContext();
-            Account account = context.Accounts.Where(c => c.Id == id).FirstOrDefault();
-            account.Balance = account.Balance - value;
-            context.SaveChanges();
-            context.Dispose();
+            using (AccountContext context = new AccountContext())
+            {
+                Account account = context.Accounts.FirstOrDefault(c => c.Id == id);
+                account.Balance = account.Balance - value;
+                context.SaveChanges();
+            }
         }
 
         public void AccountBalanceUp(int id, double value)
         {
-            AccountContext context = new AccountContext();
-            Account account = context.Accounts.Find(id);
-            account.Balance = account.Balance + value;
-            context.SaveChanges();
-            context.Dispose();
+            using (AccountContext context = new AccountContext())
+            {
+                Account account = context.Accounts.Find(id);
+                account.Balance = account.Balance + value;
+                context.SaveChanges();
+            }
         }
 
         public Account GetAccount(int id)
         {
-            AccountContext context = new AccountContext();
+            using (AccountContext context = new AccountContext())
             {
                 var account = context.Accounts.Find(id);
-                context.Dispose();
                 return account;
             } 
         }
 
-        public DbSet<Account> GetAccounts()
+        public List<Account> GetAccounts()
         {
-            AccountContext context = new AccountContext();
+            using (AccountContext context = new AccountContext())
             {
-                //context.Accounts.Load();
-                var accounts = context.Accounts;
-                context.Dispose();
+                var accounts = context.Accounts.ToList();
                 return accounts;
             }
         }
 
         public Bet GetBet(int id)
         {
-            BetContext context = new BetContext();
+            using (BetContext context = new BetContext())
             {
                 var bet = context.Bets.Find(id);
-                context.Dispose();
                 return bet;
             }   
         }
 
-        public DbSet<Bet> GetBets()
+        public List<Bet> GetBets()
         {
-            BetContext context = new BetContext();
+            using (BetContext context = new BetContext())
             {
-                var bets = context.Bets;
-                context.Dispose();
+                var bets = context.Bets.ToList();
                 return bets;
             }
         }
 
         public void SetAccount(string surName, string name, string middleName, DateTime dateOfBirth, double balance = 0)
         {
-            AccountContext context = new AccountContext();
+            using (AccountContext context = new AccountContext())
             {
                 context.Accounts.Add(new Account
                 {
@@ -86,12 +82,11 @@ namespace WcfServiceLibrary
                 });
                 context.SaveChanges();
             }
-            context.Dispose();
         }
 
         public void SetBet(DateTime date, double valueIn, double coefficient, bool result, double valueOut)
         {
-            BetContext context = new BetContext();
+            using (BetContext context = new BetContext())
             {
                 context.Bets.Add(new Bet
                 {
@@ -103,7 +98,6 @@ namespace WcfServiceLibrary
                 });
                 context.SaveChanges();
             }
-            context.Dispose();
         }
     }
 }

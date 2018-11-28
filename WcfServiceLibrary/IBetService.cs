@@ -5,16 +5,16 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Data.Entity;
 using System.Text;
-using WcfServiceLibrary.model;
+using WcfServiceLibrary.Model;
 
 namespace WcfServiceLibrary
 {
     [ServiceContract]
-    public interface IService1
+    public interface IBetService
     {
 
         [OperationContract]
-        DbSet<Account> GetAccounts();
+        List<Account> GetAccounts();
 
         [OperationContract]
         Account GetAccount(int id);
@@ -29,7 +29,7 @@ namespace WcfServiceLibrary
         void AccountBalanceDown(int id, double value);
 
         [OperationContract]
-        DbSet<Bet> GetBets();
+        List<Bet> GetBets();
 
         [OperationContract]
         Bet GetBet(int id);

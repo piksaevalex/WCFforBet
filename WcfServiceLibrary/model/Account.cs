@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WcfServiceLibrary.model
+namespace WcfServiceLibrary.Model
 {
     public class Account
     {

@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace WcfServiceLibrary.model
+namespace WcfServiceLibrary.Model
 {
     public class AccountContext : DbContext
     {

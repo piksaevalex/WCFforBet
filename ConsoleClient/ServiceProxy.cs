@@ -15,7 +15,7 @@ namespace ConsoleClient
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary.model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Account", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary.Model")]
     public partial class Account : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
@@ -126,7 +126,7 @@ namespace ConsoleClient
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Bet", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary.model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Bet", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary.Model")]
     public partial class Bet : object, System.Runtime.Serialization.IExtensibleDataObject
     {
         
@@ -236,89 +236,89 @@ namespace ConsoleClient
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ConsoleClient.IService1")]
-    public interface IService1
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ConsoleClient.IBetService")]
+    public interface IBetService
     {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccounts", ReplyAction="http://tempuri.org/IService1/GetAccountsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetAccounts", ReplyAction="http://tempuri.org/IBetService/GetAccountsResponse")]
         ConsoleClient.Account[] GetAccounts();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccounts", ReplyAction="http://tempuri.org/IService1/GetAccountsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetAccounts", ReplyAction="http://tempuri.org/IBetService/GetAccountsResponse")]
         System.Threading.Tasks.Task<ConsoleClient.Account[]> GetAccountsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccount", ReplyAction="http://tempuri.org/IService1/GetAccountResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetAccount", ReplyAction="http://tempuri.org/IBetService/GetAccountResponse")]
         ConsoleClient.Account GetAccount(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccount", ReplyAction="http://tempuri.org/IService1/GetAccountResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetAccount", ReplyAction="http://tempuri.org/IBetService/GetAccountResponse")]
         System.Threading.Tasks.Task<ConsoleClient.Account> GetAccountAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetAccount", ReplyAction="http://tempuri.org/IService1/SetAccountResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/SetAccount", ReplyAction="http://tempuri.org/IBetService/SetAccountResponse")]
         void SetAccount(string surName, string name, string middleName, System.DateTime dateOfBirth, double balance);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetAccount", ReplyAction="http://tempuri.org/IService1/SetAccountResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/SetAccount", ReplyAction="http://tempuri.org/IBetService/SetAccountResponse")]
         System.Threading.Tasks.Task SetAccountAsync(string surName, string name, string middleName, System.DateTime dateOfBirth, double balance);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AccountBalanceUp", ReplyAction="http://tempuri.org/IService1/AccountBalanceUpResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/AccountBalanceUp", ReplyAction="http://tempuri.org/IBetService/AccountBalanceUpResponse")]
         void AccountBalanceUp(int id, double value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AccountBalanceUp", ReplyAction="http://tempuri.org/IService1/AccountBalanceUpResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/AccountBalanceUp", ReplyAction="http://tempuri.org/IBetService/AccountBalanceUpResponse")]
         System.Threading.Tasks.Task AccountBalanceUpAsync(int id, double value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AccountBalanceDown", ReplyAction="http://tempuri.org/IService1/AccountBalanceDownResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/AccountBalanceDown", ReplyAction="http://tempuri.org/IBetService/AccountBalanceDownResponse")]
         void AccountBalanceDown(int id, double value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AccountBalanceDown", ReplyAction="http://tempuri.org/IService1/AccountBalanceDownResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/AccountBalanceDown", ReplyAction="http://tempuri.org/IBetService/AccountBalanceDownResponse")]
         System.Threading.Tasks.Task AccountBalanceDownAsync(int id, double value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBets", ReplyAction="http://tempuri.org/IService1/GetBetsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetBets", ReplyAction="http://tempuri.org/IBetService/GetBetsResponse")]
         ConsoleClient.Bet[] GetBets();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBets", ReplyAction="http://tempuri.org/IService1/GetBetsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetBets", ReplyAction="http://tempuri.org/IBetService/GetBetsResponse")]
         System.Threading.Tasks.Task<ConsoleClient.Bet[]> GetBetsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBet", ReplyAction="http://tempuri.org/IService1/GetBetResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetBet", ReplyAction="http://tempuri.org/IBetService/GetBetResponse")]
         ConsoleClient.Bet GetBet(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBet", ReplyAction="http://tempuri.org/IService1/GetBetResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/GetBet", ReplyAction="http://tempuri.org/IBetService/GetBetResponse")]
         System.Threading.Tasks.Task<ConsoleClient.Bet> GetBetAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetBet", ReplyAction="http://tempuri.org/IService1/SetBetResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/SetBet", ReplyAction="http://tempuri.org/IBetService/SetBetResponse")]
         void SetBet(System.DateTime date, double valueIn, double coefficient, bool result, double valueOut);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetBet", ReplyAction="http://tempuri.org/IService1/SetBetResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBetService/SetBet", ReplyAction="http://tempuri.org/IBetService/SetBetResponse")]
         System.Threading.Tasks.Task SetBetAsync(System.DateTime date, double valueIn, double coefficient, bool result, double valueOut);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : ConsoleClient.IService1, System.ServiceModel.IClientChannel
+    public interface IBetServiceChannel : ConsoleClient.IBetService, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<ConsoleClient.IService1>, ConsoleClient.IService1
+    public partial class BetServiceClient : System.ServiceModel.ClientBase<ConsoleClient.IBetService>, ConsoleClient.IBetService
     {
         
-        public Service1Client()
+        public BetServiceClient()
         {
         }
         
-        public Service1Client(string endpointConfigurationName) : 
+        public BetServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName)
         {
         }
         
-        public Service1Client(string endpointConfigurationName, string remoteAddress) : 
+        public BetServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress)
         {
         }
         
-        public Service1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public BetServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress)
         {
         }
         
-        public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public BetServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress)
         {
         }

@@ -14,13 +14,17 @@ namespace ConsoleClient
             
             while (true)
             {
-                Service1Client svc = new Service1Client();
+                BetServiceClient svc = new BetServiceClient();
                 Console.WriteLine("1-GetAccount, 2-GetAccountById, 3-InsertAccount, 4-GetBet, 5-GetBetById, 6-InsertBet");
                 Console.WriteLine("Enter number or press [ENTER] to quit...");
                 var caseItem = Console.ReadLine();
                 int caseSwitch;
-                if (string.IsNullOrEmpty(caseItem)) { return; }
-                if (!(int.TryParse(caseItem, out caseSwitch))) { Console.WriteLine("Enter number or press [ENTER] to quit..."); continue; }
+                if (string.IsNullOrEmpty(caseItem))  return;
+                if (!(int.TryParse(caseItem, out caseSwitch)))
+                {
+                    Console.WriteLine("Enter number or press [ENTER] to quit...");
+                    continue;
+                }
                 switch (caseSwitch)
                 {
                     case 1:
@@ -37,7 +41,7 @@ namespace ConsoleClient
                         if (accountById != null) { Console.WriteLine(accountById.Name); }
                         break;
                     case 3:
-                        svc.SetAccount("ads", "asd", "sadad", DateTime.Now, 0);
+                        svc.SetAccount("Ivanov", "Ivan", "Ivanovich", DateTime.Now, 0);
                         Console.WriteLine("Account insert Sucsed");
                         break;
                     case 4:
@@ -58,14 +62,14 @@ namespace ConsoleClient
                         Console.WriteLine("Bet insert Sucsed");
                         break;
                     case 7:
-                        Console.WriteLine("Введите AccountId и кол-во средств");
+                        Console.WriteLine("Введите AccountId и кол-во средств, которое хотите внести");
                         var str1 = Console.ReadLine().Split(' ');
                         int id1 = Convert.ToInt32(str1[0]);
                         double value1 = Convert.ToDouble(str1[1]);
                         svc.AccountBalanceUp(id1, value1);
                         break;
                     case 8:
-                        Console.WriteLine("Введите AccountId и кол-во средств");
+                        Console.WriteLine("Введите AccountId и кол-во средств, которое хотите внести");
                         var str2 = Console.ReadLine().Split(' ');
                         int id2 = Convert.ToInt32(str2[0]);
                         double value2 = Convert.ToDouble(str2[1]);
