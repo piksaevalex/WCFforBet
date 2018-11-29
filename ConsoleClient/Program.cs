@@ -15,24 +15,17 @@ namespace ConsoleClient
                 var caseItem = Console.ReadLine();
                 int caseSwitch;
                 if (string.IsNullOrEmpty(caseItem)) return;
-                if (!int.TryParse(caseItem, out caseSwitch))
-                {
-                    Console.WriteLine("Enter number or press [ENTER] to quit...");
-                    continue;
-                }
-
+                if (!int.TryParse(caseItem, out caseSwitch)) continue;
+                
                 switch (caseSwitch)
                 {
-                    default:
-                        Console.WriteLine("Ошибка");
-                        break;
                     case 1:
                         var accounts = svc.GetAccounts();
                         foreach (var account in accounts) Console.WriteLine(account.Name);
                         break;
                     case 2:
                         Console.WriteLine("Введите id Account");
-                        var accountId = Convert.ToInt32(Console.ReadLine());
+                        if (!Int32.TryParse(Console.ReadLine(), out var accountId)) continue;
                         var accountById = svc.GetAccount(accountId);
                         if (accountById != null)
                             Console.WriteLine(accountById.SurName);
@@ -41,7 +34,7 @@ namespace ConsoleClient
                         break;
                     case 3:
                         svc.SetAccount("Ivanov", "Ivan", "Ivanovich", DateTime.Now, 0);
-                        Console.WriteLine("Account insert Sucsed");
+                        Console.WriteLine("Account inserted successfully");
                         break;
                     case 4:
                         var bets = svc.GetBets();
@@ -49,7 +42,7 @@ namespace ConsoleClient
                         break;
                     case 5:
                         Console.WriteLine("Введите id Bet");
-                        var betId = Convert.ToInt32(Console.ReadLine());
+                        if (!Int32.TryParse(Console.ReadLine(), out var betId)) continue;
                         var betById = svc.GetBet(betId);
                         if (betById != null)
                             Console.WriteLine(betById.InValue);
@@ -58,20 +51,20 @@ namespace ConsoleClient
                         break;
                     case 6:
                         svc.SetBet(DateTime.Now, 10, 2, false, 0);
-                        Console.WriteLine("Bet insert Sucsed");
+                        Console.WriteLine("Bet inserted successfully");
                         break;
                     case 7:
                         Console.WriteLine("Введите AccountId и кол-во средств, которое хотите внести");
                         var str1 = Console.ReadLine().Split(' ');
-                        var id1 = Convert.ToInt32(str1[0]);
-                        var value1 = Convert.ToDouble(str1[1]);
+                        if (!Int32.TryParse(str1[0], out var id1)) continue;
+                        if (!double.TryParse(str1[1], out var value1)) continue;
                         svc.AccountBalanceUp(id1, value1);
                         break;
                     case 8:
                         Console.WriteLine("Введите AccountId и кол-во средств, которое хотите внести");
                         var str2 = Console.ReadLine().Split(' ');
-                        var id2 = Convert.ToInt32(str2[0]);
-                        var value2 = Convert.ToDouble(str2[1]);
+                        if (!Int32.TryParse(str2[0], out var id2)) continue;
+                        if (!double.TryParse(str2[1], out var value2)) continue;
                         svc.AccountBalanceDown(id2, value2);
                         break;
                     case 9:
@@ -90,6 +83,10 @@ namespace ConsoleClient
                         var betsByInValue = svc.GetBetsByInValue(result);
                         if (betsByInValue.Length == 0) Console.WriteLine("Нет таких");
                         foreach (var bet in betsByInValue) Console.WriteLine(bet.Id);
+                        break;
+
+                    default:
+                        Console.WriteLine("Ошибка");
                         break;
                 }
             }
